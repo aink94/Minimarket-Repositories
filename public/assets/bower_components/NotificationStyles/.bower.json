@@ -1,0 +1,14 @@
+{
+  "name": "NotificationStyles",
+  "homepage": "https://github.com/codrops/NotificationStyles",
+  "_release": "6f7f1590a5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6f7f1590a5c5688cb258e03ae4798f0f35291eff"
+  },
+  "_source": "https://github.com/codrops/NotificationStyles.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/codrops/NotificationStyles.git",
+  "_direct": true
+}
