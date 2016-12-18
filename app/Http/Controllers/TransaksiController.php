@@ -130,19 +130,19 @@ class TransaksiController extends Controller
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
             //
-            $pelanggan = [
-                'nama' => $request->nama,
-                'jenis_kelamin' => ($request->jenis_kelamin) ? $request->jenis_kelamin : 'Laki-laki',
-                'telepon' => ($request->telepon) ? $request->telepon : NULL,
-                'alamat' => ($request->alamat) ? $request->alamat : NULL,
-            ];
-            $pelanggan = $pelangganRepository->updateOrCreate($pelanggan);
+//            $pelanggan = [
+//                'nama' => $request->nama,
+//                'jenis_kelamin' => ($request->jenis_kelamin) ? $request->jenis_kelamin : 'Laki-laki',
+//                'telepon' => ($request->telepon) ? $request->telepon : NULL,
+//                'alamat' => ($request->alamat) ? $request->alamat : NULL,
+//            ];
+//            $pelanggan = $pelangganRepository->updateOrCreate($pelanggan);
 
             $bayar = [
                 'kode' => $request->kode,
                 'tanggal' => Carbon::now(),
                 'status_pembayaran' => 'BAYAR KARTU',
-                'pelanggan_id' => ($pelanggan) ? $pelanggan['id'] : NULL,
+                //'pelanggan_id' => ($pelanggan) ? $pelanggan['id'] : NULL,
                 'pegawai_id' => Auth::user()->id
             ];
 

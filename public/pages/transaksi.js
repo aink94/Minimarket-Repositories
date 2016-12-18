@@ -28,7 +28,7 @@ var notif = (function (){
             // notice, warning, error, success
             // will add class ns-type-warning, ns-type-error or ns-type-success
             type    : params.type || 'error',
-            // if the user doesn´t close the notification then we remove it
+            // if the user doesnï¿½t close the notification then we remove it
             // after the following time
             ttl : 5000,//5 detik
         });
@@ -431,7 +431,7 @@ function bayarRfid(){
                 tagihan.inputmask("remove");
                 console.log(tagihan.val());
                 var params = $.param({
-                    "api_token": "$2Y$10$8L/hMrNO42hOpkfcz7v2uOL6Gq04aNvBm.YSCOZ51U87HuAzjnOVy",
+                    "api_token": "$2y$10$e5OC.1mTLxTRYlYk1UfB.urvCBxCDeams.aqXF9L8WZzyMaUoW2Au",
                     "uid": objData.uid,
                     "nis": objData.nis,
                     "jumlah": tagihan.val(),
@@ -450,12 +450,18 @@ function bayarRfid(){
                     //global   : false
                 }).fail(function(event ,xhr, setting){
                     tagihan.inputmask({ alias : "rupiah" });
+                    notif.Add({
+                        type: "error",
+                        message: event.responseJSON.message
+                    });
+                    $("#modal").modal("hide");
+
                 }).done(function(event ,xhr, setting){
                     console.log(event);
                     console.log(xhr);
                     console.log(setting);
                     //Kirim Minimarket
-                    /*
+
                     bayar.inputmask('remove');
                     kembalian.inputmask('remove');
                     tagihan.inputmask('remove');
@@ -489,8 +495,10 @@ function bayarRfid(){
                         bayar.inputmask({alias: 'rupiah'});
                         kembalian.inputmask({alias: 'rupiah'});
                     });
-                    */
 
+                });
+                $("#modal").on('hidden.bs.modal', function(e){
+                    $(this).remove();
                 });
             }
         }
